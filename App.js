@@ -1,9 +1,9 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Header from "./components/Header/index"
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Header from "./src/components/Header/index";
 
-import Login from './pages/Login/index';
-import Home from './pages/Home/index';
+import Login from "./src/pages/Login/index";
+import Home from "./src/pages/Home/index";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -20,7 +20,7 @@ export default function App() {
           name="Home"
           component={Home}
           options={{
-            header: () => <Header>Premier</Header>
+            header: () => <Header>Premier</Header>,
           }}
         />
       </Stack.Navigator>
