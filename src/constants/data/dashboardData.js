@@ -1,4 +1,4 @@
-export const dashboardCardsData = [
+export const dashboardData = [
   {
     id: "1",
     title: "Total de Itens",
