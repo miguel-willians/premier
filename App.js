@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "./src/components/Header/index";
 import Relatorios from "./src/pages/Relatorios/index";
+import Saida from "./src/pages/Saida";
 import Login from "./src/pages/Login/index";
 import Home from "./src/pages/Home/index";
 
@@ -10,10 +11,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Relatorios">
+      <Stack.Navigator initialRouteName="Saida">
         <Stack.Screen
-          name="Relatorios"
-          component={Relatorios}
+          name="Saida"
+          component={Saida}
           options={{ headerShown: false }}
         />
         <Stack.Screen
