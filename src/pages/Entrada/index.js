@@ -1,14 +1,15 @@
-import { Text, View, ScrollView  } from "react-native";
-import React, { useState } from 'react';
+import { Text, View, ScrollView } from "react-native";
+import { useState } from 'react';
 import Layout from "../../layout/index";
 import InputText from "../../components/InputText/index";
-import CustomButton from "../../components/CustomButton/index"
+import CustomButton from "../../components/CustomButton/index";
 import { products } from "../../constants/data/products";
 import { Picker } from '@react-native-picker/picker';
+import Slider from '@react-native-community/slider';
 
 export default function Entrada() {
   const [produtoSelecionado, setProdutoSelecionado] = useState('');
-  const [quantidade, setQuantidade] = useState('');
+  const [quantidade, setQuantidade] = useState(0); 
   const [lote, setLote] = useState('');
   const [dataValidade, setDataValidade] = useState('');
 
@@ -36,35 +37,45 @@ export default function Entrada() {
         <View style={{ gap: 15 }}>
           
           <View>
-            <Text >Produto</Text>
-              <Picker
-                selectedValue={produtoSelecionado}
-                onValueChange={(itemValue, itemIndex) =>
-                  setProdutoSelecionado(itemValue)
-                }
-              >
-                {/* Item padrão (dica para o usuário) */}
-                <Picker.Item label="-- Selecione um produto --" value="" />
-                
-                {/* Loop para listar os produtos do seu array */}
-                {products.map((p) => (
-                  <Picker.Item 
-                    key={p.id} 
-                    label={`${p.name} (${p.description})`} 
-                    value={p.id} 
-                  />
-                ))}
-              </Picker>
-            </View>
+            <Text>Produto</Text>
+            <Picker
+              selectedValue={produtoSelecionado}
+              onValueChange={(itemValue) => setProdutoSelecionado(itemValue)}
+            >
+              <Picker.Item label="-- Selecione um produto --" value="" />
+              {products.map((p) => (
+                <Picker.Item 
+                  key={p.id} 
+                  label={`${p.name} (${p.description})`} 
+                  value={p.id} 
+                />
+              ))}
+            </Picker>
           </View>
 
-          <InputText
-            label="Quantidade"
-            placeholder="Ex: 100"
-            value={quantidade}
-            onChangeText={setQuantidade}
-            keyboardType="numeric"
-          />
+          <View>
+            <Text>Quantidade</Text>
+            <InputText
+              placeholder="Ex: 100"
+              value={quantidade.toString()}
+              onChangeText={(text) => {
+                const numericValue = parseInt(text) || 0;
+                setQuantidade(numericValue);
+              }}
+              keyboardType="numeric"
+            />
+
+            <Slider
+              minimumValue={0}
+              maximumValue={500}
+              step={1}
+              value={quantidade}
+              onValueChange={setQuantidade}
+              minimumTrackTintColor="#1fb28a"
+              maximumTrackTintColor="#d3d3d3"
+              thumbTintColor="#b9e4c9"
+            />
+          </View>
 
           <InputText
             label="Lote"
@@ -80,10 +91,12 @@ export default function Entrada() {
             onChangeText={setDataValidade}
           />
 
+        </View>
+
         <View style={{ marginTop: 30 }}>
-            <CustomButton onPress={handleRegistrarEntrada}>
-                Registrar Entrada
-            </CustomButton>
+          <CustomButton onPress={handleRegistrarEntrada}>
+            Registrar Entrada
+          </CustomButton>
         </View>
 
       </ScrollView>
