@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "./src/components/Header/index";
-
+import Relatorios from "./src/pages/Relatorios/index";
 import Login from "./src/pages/Login/index";
 import Home from "./src/pages/Home/index";
 
@@ -10,10 +10,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Relatorios">
         <Stack.Screen
-          name="Login"
-          component={Login}
+          name="Relatorios"
+          component={Relatorios}
           options={{ headerShown: false }}
         />
         <Stack.Screen

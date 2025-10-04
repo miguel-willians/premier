@@ -1,0 +1,21 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Variáveis de Ambiente
+.env
+.env.local
+
+# Pastas de Build do Android e iOS
+android/app/build/
+android/build/
+ios/build/
+
+# Arquivos de IDEs e do Sistema
+.vscode/
+.idea/
+*.suo
+*.user
+.DS_Store
+Thumbs.db
