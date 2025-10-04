@@ -6,6 +6,7 @@ import Produtos from "../pages/Produtos/index";
 import Entrada from "../pages/Entrada/index";
 import Saida from "../pages/Saida/index";
 import Relatorios from "../pages/Relatorios/index";
+import CadastrarProduto from "../pages/CadastrarProduto/index"
 
 export default function MainTabs() {
   const Tab = createBottomTabNavigator();
