@@ -1,17 +1,16 @@
 import { Text, View, ScrollView } from "react-native";
-import React, { useState } from 'react';
+import { useState } from "react";
 import Layout from "../../layout/index";
 import InputText from "../../components/InputText/index";
-import CustomButton from "../../components/CustomButton/index"
-
+import CustomButton from "../../components/CustomButton/index";
 
 export default function CadastrarProduto() {
-  const [nome, setNome] = useState('');
-  const [marca, setMarca] = useState('');
-  const [pesoTamanho, setPesoTamanho] = useState('');
-  const [qtdInicial, setQtdInicial] = useState('');
-  const [qtdMinima, setQtdMinima] = useState('');
-  const [dataValidade, setDataValidade] = useState('');
+  const [nome, setNome] = useState("");
+  const [marca, setMarca] = useState("");
+  const [pesoTamanho, setPesoTamanho] = useState("");
+  const [qtdInicial, setQtdInicial] = useState("");
+  const [qtdMinima, setQtdMinima] = useState("");
+  const [dataValidade, setDataValidade] = useState("");
 
   const handleSalvarProduto = () => {
     console.log("Produto a ser salvo:", {
@@ -20,19 +19,18 @@ export default function CadastrarProduto() {
       pesoTamanho,
       qtdInicial,
       qtdMinima,
-      dataValidade
+      dataValidade,
     });
   };
 
   return (
     <Layout>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>
         Cadastrar Novo Produto
       </Text>
 
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={{ gap: 15 }}>
-          
           <InputText
             label="Nome do Produto"
             placeholder="Ração Filhote Premium"
@@ -79,11 +77,10 @@ export default function CadastrarProduto() {
         </View>
 
         <View style={{ marginTop: 30 }}>
-            <CustomButton onPress={handleSalvarProduto}>
-                Salvar Produto
-            </CustomButton>
+          <CustomButton onPress={handleSalvarProduto}>
+            Salvar Produto
+          </CustomButton>
         </View>
-
       </ScrollView>
     </Layout>
   );

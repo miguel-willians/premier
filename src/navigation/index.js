@@ -6,15 +6,16 @@ import Produtos from "../pages/Produtos/index";
 import Entrada from "../pages/Entrada/index";
 import Saida from "../pages/Saida/index";
 import Relatorios from "../pages/Relatorios/index";
-import CadastrarProduto from "../pages/CadastrarProduto/index"
+import CadastrarProduto from "../pages/CadastrarProduto/index";
+import Header from "../components/Header/index";
 
 export default function MainTabs() {
   const Tab = createBottomTabNavigator();
 
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={{
-        headerShown: false,
         tabBarShowLabel: true,
         tabBarStyle: { height: 60 },
       }}
@@ -26,6 +27,7 @@ export default function MainTabs() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" size={size} color={color} />
           ),
+          header: () => <Header>Premier</Header>,
         }}
       />
       <Tab.Screen
@@ -35,6 +37,17 @@ export default function MainTabs() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="box" size={size} color={color} />
           ),
+          header: () => <Header>Premier</Header>,
+        }}
+      />
+      <Tab.Screen
+        name="CadastrarProduto"
+        component={CadastrarProduto}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="box" size={size} color={color} />
+          ),
+          header: () => <Header>Premier</Header>,
         }}
       />
       <Tab.Screen
@@ -44,6 +57,7 @@ export default function MainTabs() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="arrow-up" size={size} color={color} />
           ),
+          header: () => <Header>Premier</Header>,
         }}
       />
       <Tab.Screen
@@ -53,6 +67,7 @@ export default function MainTabs() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="arrow-down" size={size} color={color} />
           ),
+          header: () => <Header>Premier</Header>,
         }}
       />
       <Tab.Screen
@@ -62,6 +77,7 @@ export default function MainTabs() {
           tabBarIcon: ({ color, size }) => (
             <Feather name="bar-chart-2" size={size} color={color} />
           ),
+          header: () => <Header>Premier</Header>,
         }}
       />
     </Tab.Navigator>

@@ -8,10 +8,6 @@ import LowStockCard from "../../components/LowStockCard/index";
 import RecentActivityCard from "../../components/RecentActivityCard/index";
 
 export default function Home() {
-  console.log("dashboardData", dashboardData);
-  console.log("outOfStockProducts", outOfStockProducts);
-  console.log("activities", activities);
-
   return (
     <Layout>
       <PageTitle subtitle="Visão geral do seu estoque">Dashboard</PageTitle>
