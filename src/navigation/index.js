@@ -6,11 +6,14 @@ import Produtos from "../pages/Produtos/index";
 import Entrada from "../pages/Entrada/index";
 import Saida from "../pages/Saida/index";
 import Relatorios from "../pages/Relatorios/index";
-import CadastrarProduto from "../pages/CadastrarProduto/index";
+import CadastrarUsuario from "../pages/CadastrarUsuario/index";
 import Header from "../components/Header/index";
+
+import { useUserRole } from "../hooks/useUserRole";
 
 export default function MainTabs() {
   const Tab = createBottomTabNavigator();
+  const { role } = useUserRole();
 
   return (
     <Tab.Navigator
@@ -30,6 +33,7 @@ export default function MainTabs() {
           header: () => <Header>Premier</Header>,
         }}
       />
+
       <Tab.Screen
         name="Produtos"
         component={Produtos}
@@ -40,16 +44,21 @@ export default function MainTabs() {
           header: () => <Header>Premier</Header>,
         }}
       />
-      <Tab.Screen
-        name="CadastrarProduto"
-        component={CadastrarProduto}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="box" size={size} color={color} />
-          ),
-          header: () => <Header>Premier</Header>,
-        }}
-      />
+
+      {role === "admin" && (
+        <Tab.Screen
+          name="CadastrarUsuario"
+          component={CadastrarUsuario}
+          options={{
+            tabBarIcon: ({ color, size }) => (
+              <Feather name="user-plus" size={size} color={color} />
+            ),
+            header: () => <Header>Premier</Header>,
+            tabBarLabel: "Criar Usuário",
+          }}
+        />
+      )}
+
       <Tab.Screen
         name="Entrada"
         component={Entrada}
@@ -60,6 +69,7 @@ export default function MainTabs() {
           header: () => <Header>Premier</Header>,
         }}
       />
+
       <Tab.Screen
         name="Saida"
         component={Saida}
@@ -70,6 +80,7 @@ export default function MainTabs() {
           header: () => <Header>Premier</Header>,
         }}
       />
+
       <Tab.Screen
         name="Relatorios"
         component={Relatorios}
