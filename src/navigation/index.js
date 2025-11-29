@@ -2,7 +2,7 @@ import Feather from "@expo/vector-icons/Feather";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Home from "../pages/Home/index";
-import Produtos from "../pages/Produtos/index";
+import Produtos from "./produtosStack";
 import Entrada from "../pages/Entrada/index";
 import Saida from "../pages/Saida/index";
 import Relatorios from "../pages/Relatorios/index";
